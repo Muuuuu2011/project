@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;"/>
+	<title>作業</title>
+	<style type="text/css">
+	body{
+		font-family:"微軟正黑體";margin:0;padding:0;
+		background-color:#eeeeee;"
+	}
+	nav{
+		display:flex;
+	}
+	nav>.head{
+		flex:auto;
+		background-color:white;font-size:20px;
+	}
+	nav>.items{
+		flex:none;width:70px;
+		background-color:white;font-size:20px;
+	}
+	.welecome{
+		background-color:gray;font-size:40px;margin:0px;
+		height:300px;text-align:center;line-height:300px;
+		}
+
+	main{
+		display:flex;max-width:1200px;background-color:black;
+		justify-content:center;flex-wrap:wrap;
+		margin-left:auto;margin-right:auto;
+	}
+	main>.box{
+		flex:none;width:280px;background-color:balck;margin:10px;
+	}
+	.pics{
+		width:280px;height:200px;
+	}
+	.adj{
+		font-size:20px;text-align:center;background-color:white;width:280px;
+		}
+	@media (max-width:1200px){
+		main>.box{
+			width:45%;
+		}
+	}
+	@media (max-width:600px){
+		main>.box{
+			width:90%;
+		}
+	}
+	
+	
+	</style>
+</head>
+<body>
+	<nav>
+		<div class="head">我的網頁</div>
+		<div class="items">項目-1</div>
+		<div class="items">項目-2</div>
+		<div class="items">項目-3</div>
+		<div class="items">項目-4</div>	
+	</nav>
+		<div class="welecome">歡迎來到我的網頁</div>
+		<!--
+			RWD回應式設計規劃:
+			1200px以上的規劃:4欄，固定尺寸
+			600px ~ 1200px之間的規劃:2欄，彈性尺寸
+			600以下:1欄，彈性尺寸
+		-->
+		<main>	
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+			<div class="box">
+				<img class="pics" src="pic.png">
+				<div class="adj">台灣國旗</div>
+			</div>
+		
+		</main>
+	
+</body>
+</html>
