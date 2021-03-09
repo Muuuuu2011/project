@@ -2,12 +2,45 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;"/>
-	<title>作業</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+	<title>作業3</title>
+	<script type="text/javascript">
+	window.onload = function getData(){
+		var req=new XMLHttpRequest();
+		req.open("get","https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json");
+		//要改用fetch比較好
+		//get post patch delete (curd)
+		req.onload=function(){
+			var data=JSON.parse(this.responseText);
+            var data1=data.result;
+            console.log(data1);
+            var data2=data1.results;
+			var el = document.getElementsByTagName('main')[0];//創造一個裝大箱子的main
+			for(i=0;i<8;i++){
+				var bigBox = document.createElement("div");//創造一個大箱子:之後要裝圖、字
+				bigBox.classList.add("box");//class="box"
+                var bigImg = document.createElement("img")//創造一個圖的盒子:可以把圖放進去
+				bigBox.appendChild(bigImg);//大箱子裡面有圖的盒子
+				var imgName = document.createElement("div")//創造一個字的盒子:可以把字放進去
+				imgName.classList.add("adj");//class="adj"
+				bigBox.appendChild(imgName);//大箱子裡面有字的盒子
+				var text = document.createTextNode(data2[i].stitle);//字
+				imgName.appendChild(text);//字的盒子裡面裝字
+                bigImg.src ="http://"+data2[i].file.split("http://")[1];//圖
+				el.appendChild(bigBox);//把大箱子裝進main
+				// imgName.textContent = data2[i].stitle;
+				// el.appendChild(bigBox);
+                // el.appendChild(bigImg);
+				// el.appendChild(imgName);  
+            }  
+		}
+		req.send();	
+	}
+	</script>
 	<style type="text/css">
 	body{
 		font-family:"微軟正黑體";margin:0;padding:0;
-		background-color:#eeeeee;"
+		background-color:#eeeeee;
 	}
 	nav{
 		display:flex;
@@ -27,26 +60,40 @@
 
 	main{
 		display:flex;max-width:1200px;
-		justify-content:center;flex-wrap:wrap;
+		justify-content:space-around;flex-wrap:wrap;
 		margin-left:auto;margin-right:auto;
 	}
 	main>.box{
-		flex:none;width:280px;background-color:balck;margin:10px;
+		flex:none;width:300px;
 	}
-	.pics{
-		width:280px;vertical-align:bottom;
+	img{
+		width:100%;vertical-align:bottom;margin:auto;display:block;height:200px;
 	}
 	.adj{
-		font-size:20px;text-align:center;background-color:white;width:280px;
+		font-size:20px;text-align:center;background-color:#faebd7;width:280px;margin:auto;display:block;
 		}
 	@media (max-width:1200px){
+		.adj {
+			width:100%;
+		}
 		main>.box{
 			width:45%;
 		}
+		img{
+			height:80%;
+			width:100%;
+		}
 	}
 	@media (max-width:600px){
+		.adj{
+			width:100%;
+		}
 		main>.box{
 			width:90%;
+		}
+		img{
+			height:80%;
+			width:100%;
 		}
 	}
 	.hamburger{
@@ -84,40 +131,7 @@
 			600以下:1欄，彈性尺寸
 		-->
 		<main>	
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-			<div class="box">
-				<img class="pics" src="pic.png">
-				<div class="adj">台灣國旗</div>
-			</div>
-		
 		</main>
 	
-</body>
+	</body>
 </html>
